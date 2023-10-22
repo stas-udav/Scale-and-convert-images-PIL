@@ -13,7 +13,7 @@ for filename in file_list:
         im = Image.open(image_path)
         print(im.format, im.size)
         destination_path = os.path.join("D:\\movavi video\\test", filename) #создаем абсолютный путь для сохранения файлов
-        rotated  = im.rotate(45)
+        rotated  = im.rotate(90)
         out = rotated.resize((128, 128)) # изменяем размер повернутых файлов
         out.save(destination_path)
         im.close()
