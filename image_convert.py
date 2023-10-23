@@ -6,16 +6,21 @@ folder_path = "D:\\movavi video"
 # Получение списка файлов в указанной папке
 file_list = os.listdir(folder_path)
 
+#create folder for new files
+folder = "D:\\movavi video\\opt\\icons\\"
+
+if not os.path.exists(folder):
+    os.makedirs(folder)
 # Итерация по файлам
 for filename in file_list:
     if filename.endswith((".jpg", ".jpeg", ".png", ".gif")):
         image_path = os.path.join(folder_path, filename)
         im = Image.open(image_path)
         print(im.format, im.size)
-        destination_path = os.path.join("D:\\movavi video\\test", filename) #создаем абсолютный путь для сохранения файлов
+        destination_path = os.path.join(folder, filename) #создаем абсолютный путь для сохранения файлов
         rotated  = im.rotate(90)
         out = rotated.resize((128, 128)) # изменяем размер повернутых файлов
-        out.save(destination_path)
+        out.save(destination_path, "JPEG")
         im.close()
         rotated.close()
         out.close()
