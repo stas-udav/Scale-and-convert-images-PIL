@@ -17,9 +17,9 @@ for filename in file_list:
         image_path = os.path.join(folder_path, filename)
         im = Image.open(image_path)
         print(im.format, im.size)
-        destination_path = os.path.join(folder, filename) #создаем абсолютный путь для сохранения файлов
+        destination_path = os.path.join(folder, filename) #create path for saving new files
         rotated  = im.rotate(90)
-        out = rotated.resize((128, 128)) # изменяем размер повернутых файлов
+        out = rotated.resize((128, 128)) # change size and rotation
         out.save(destination_path, "JPEG")
         im.close()
         rotated.close()
